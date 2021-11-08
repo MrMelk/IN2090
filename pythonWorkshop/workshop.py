@@ -47,6 +47,8 @@ def register(conn):
                 "ws.users(name, username, password, adress) +\ "
                 "VALUES (%s, %s, %s, %s);",
                 (name, username, password, adress))
+    conn.commit()
+    print("New user " + username + "added!")
     return
 
 

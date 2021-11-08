@@ -8,8 +8,21 @@ def frontend():
         print("Please choose an option:\n 1. register\n "
               "2. Login\n 3. Exit:")
         ch = get_int_from_user("option: ", True)
+
+        if (ch == 1):
+            register(conn)  # Register new user
+        elif (ch == 2):
+            username = login(conn)  # Login with existing user
+        elif (ch == 3):
+            return #Exit program
+    # Once logged in, can now search for products
+    search(conn, username)
+
+def register(conn):
     pass
 
+def login(conn):
+    return ""
 
 def get_int_from_user(msg, needed):
     while True:

@@ -40,6 +40,13 @@ def register(conn):
     #if repeated password not correct redo register
     name = input("Name: ")
     adress = input("Adress: ")
+
+    #Make a cursor object to perform SQL ask
+    cur = conn.cursor()
+    cur.execute("INSERT INTO +\ "
+                "ws.users(name, username, password, adress) +\ "
+                "VALUES (%s, %s, %s, %s);",
+                (name, username, password, adress))
     return
 
 

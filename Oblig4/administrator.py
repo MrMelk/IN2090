@@ -53,10 +53,10 @@ def make_bills(conn):
         name = dic[key][0]
         address = dic[key][1]
         owed = dic[key][2]
-        print("--Bill--\n")
-        print(f"Name: {name} \n")
-        print(f"Address: {address}\n")
-        print(f"Total due: {owed} Which is {owed/23000 * 100:.2f} percent of kneecap surgery!")
+        print("--Bill--")
+        print(f"Name: {name} ")
+        print(f"Address: {address}")
+        print(f"Total due: {owed} Which is {owed/23000 * 100:.2f} percent of kneecap surgery!\n")
 
 
 

@@ -47,7 +47,8 @@ def make_bills(conn):
             owe = 0
         owe += price
         dic[uid] = [name, address, owe]
-
+    print("debug\n")
+    print(dic.keys())
     for key in dic.keys():
         name = dic[key][0]
         address = dic[key][1]

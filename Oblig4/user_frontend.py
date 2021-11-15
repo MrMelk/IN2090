@@ -138,7 +138,7 @@ def get_int_from_user(msg, needed):
 
 
 def make_bills(conn):
-
+    return
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@ import psycopg2
 
 # Login details for database user
 dbname = "atslotte"
-username = "atslotte_priv"
+user = "atslotte_priv"
 password = "eeje0Aebie"
 
 # Gather all connection info into one string
@@ -135,6 +135,10 @@ def get_int_from_user(msg, needed):
             return int(numStr)
         except:
             print("Please provide an integer or leave blank.");
+
+
+def make_bills(conn):
+
 
 
 if __name__ == "__main__":

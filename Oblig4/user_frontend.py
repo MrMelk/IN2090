@@ -3,7 +3,7 @@ import psycopg2
 # Login details for database user
 dbname = "atslotte"
 user = "atslotte_priv"
-password = "eeje0Aebie"
+pwd = "eeje0Aebie"
 
 # Gather all connection info into one string
 connection = \

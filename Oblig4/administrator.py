@@ -31,6 +31,7 @@ def administrator():
     
 def make_bills(conn):
     # Oppg 2
+    print("-- BILLS --\n")
     cur = conn.cursor()
     q = """SELECT u.name, u.address, u.uid, p.price*o.num as \"order_price\"
                 FROM ws.orders as o JOIN ws.users as u USING (uid) JOIN ws.products as p USING (pid) 
@@ -40,14 +41,21 @@ def make_bills(conn):
     #n = max(ask[2])
     #print(ask)
     dic = {}
-    sum = 0
+    owe = 0
     for name, address, uid, price in ask:
         if uid not in dic.keys():
-            sum = 0
-        sum += price
-        dic[uid] = [name, address, sum]
+            owe = 0
+        owe += price
+        dic[uid] = [name, address, owe]
 
-    print(dic)
+    for key in dic.keys():
+        name = dic[key][0]
+        address = dic[key][1]
+        owed = dic[key][2]
+        print("--Bill--\n")
+        print("Name: %s\n", name)
+        print("Address: %s\n", address)
+        print("Total due: %s Which is %s percent of kneecap surgery!", (owed, owed/23000 * 100))
 
 
 

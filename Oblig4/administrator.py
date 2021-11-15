@@ -38,7 +38,19 @@ def make_bills(conn):
     cur.execute(q)
     ask = cur.fetchall()
     #n = max(ask[2])
-    print(ask)
+    #print(ask)
+    dic = {}
+    sum = 0
+    for name, address, uid, price in ask:
+        if uid not in dic.keys():
+            sum = 0
+        sum += price
+        dic[uid] = [name, address, sum]
+
+    print(dic)
+
+
+
     pass
 
 def insert_product(conn):

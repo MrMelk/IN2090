@@ -35,7 +35,7 @@ def make_bills(conn):
     q = """SELECT u.name, u.address, u.uid, p.price*o.num as 'order_price'
                 FROM ws.orders as o JOIN ws.users as u USING (uid) JOIN ws.products as p USING (pid) 
                 WHERE o.payed = 0;"""
-    cur.execute(q, {'name' : "%", + name + "%", 'address' : address,
+    cur.execute(q, {'name' : "%" + name + "%", 'address' : address,
     'uid' : uid, 'price' : order_price})
     ask = cur.fetchall()
     #n = max(ask[2])

@@ -57,7 +57,6 @@ def make_bills(conn):
         print(f"Address: {address}")
         print(f"Total due: {owed} Which is {owed/46000 * 100:.2f} percent of kneecap surgery!\n")
 
-    pass
 
 def insert_product(conn):
     # Oppg 3
@@ -82,11 +81,10 @@ def insert_product(conn):
     else:
         cur.execute("INSERT INTO ws.products(name, price, cid, description) VALUES (%s, %s, %s, %s);",
                     (prod_name, price, name_to_cid[category], description))
+        conn.commit()
         print(f"New product {prod_name} has been inserted!")
 
 
-
-    pass
 
 def get_int_from_user(msg, needed):
     # Utility method that gets an int from the user with the first argument as message

@@ -70,16 +70,18 @@ def insert_product(conn):
         name_to_cid[name.lower()] = cid
 
     prod_name = input("Product name: ")
-    price = input("Price: ")
+    price = float(input("Price: "))
     category = input("Category: ").lower()
     description = input("Description: ")
+    price = float("{:.2f}".format(price))
+
     print(name_to_cid)
+    print(prod_name + " " + category + " " + f"{price}" + " " +description)
     if category not in name_to_cid.keys():
         print("This category does not exist")
     else:
-        q = """INSERT INTO ws.products(name, price, cid, description) 
-        VALUES (%s, %s, %s, %s);"""
-        cur.execute(q, (prod_name, price, name_to_cid[category], description))
+        cur.execute("INSERT INTO ws.products(name, price, cid, description) VALUES (%s, %s, %s, %s);",
+                    (prod_name, price, name_to_cid[category], description))
         print(f"New product {prod_name} has been inserted!")
 
 

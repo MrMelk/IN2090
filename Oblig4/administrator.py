@@ -73,7 +73,7 @@ def insert_product(conn):
     price = input("Price: ")
     category = input("Category: ").lower()
     description = input("Description: ")
-
+    print(name_to_cid)
     if category not in name_to_cid.keys():
         print("This category does not exist")
     else:

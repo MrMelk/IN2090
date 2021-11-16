@@ -71,7 +71,7 @@ def insert_product(conn):
 
     prod_name = input("Product name: ")
     price = input("Price: ")
-    category = lower(input("Category: "))
+    category = input("Category: ").lower()
     description = input("Description: ")
 
     if category not in name_to_cid.values():

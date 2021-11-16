@@ -78,7 +78,7 @@ def insert_product(conn):
         print("This category does not exist")
     else:
         q = """INSERT INTO ws.products(name, price, cid, description) 
-        VALUES ('%s, %s, %s, %s);"""
+        VALUES (%s, %s, %s, %s);"""
         cur.execute(q, (prod_name, price, name_to_cid[category], description))
         print(f"New product {prod_name} has been inserted!")
 

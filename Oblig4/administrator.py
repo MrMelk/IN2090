@@ -67,7 +67,7 @@ def insert_product(conn):
     our_categories = cur.fetchall()
     name_to_cid = {}
     for cid, name in our_categories:
-        name_to_cid[name.lower] = cid
+        name_to_cid[name.lower()] = cid
 
     prod_name = input("Product name: ")
     price = input("Price: ")

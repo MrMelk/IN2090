@@ -74,7 +74,7 @@ def insert_product(conn):
     category = input("Category: ").lower()
     description = input("Description: ")
 
-    if category not in name_to_cid.values():
+    if category not in name_to_cid.keys():
         print("This category does not exist")
     else:
         q = """INSERT INTO ws.products(name, price, cid, description) 

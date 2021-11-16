@@ -62,7 +62,7 @@ def make_bills(conn):
 def insert_product(conn):
     # Oppg 3
     cur = conn.cursor()
-    get_cat = """SELECT * FROM ws.categories WHERE name = 'games';"""
+    get_cat = """SELECT * FROM ws.categories;"""
     cur.execute(get_cat)
     our_categories = cur.fetchall()
     name_to_cid = {}

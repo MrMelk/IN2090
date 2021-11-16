@@ -76,7 +76,7 @@ def insert_product(conn):
     price = float("{:.2f}".format(price))
 
     print(name_to_cid)
-    print(prod_name + " " + category + " " + f"{price}" + " " +description)
+    print(prod_name + " " + category + f"{name_to_cid[category]}" + " " + f"{price}" + " " +description)
     if category not in name_to_cid.keys():
         print("This category does not exist")
     else:

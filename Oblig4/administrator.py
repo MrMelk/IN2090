@@ -47,8 +47,7 @@ def make_bills(conn):
             owe = 0
         owe += price
         dic[uid] = [name, address, owe]
-    print("debug\n")
-    print(dic.keys())
+
     for key in dic.keys():
         name = dic[key][0]
         address = dic[key][1]
@@ -56,14 +55,35 @@ def make_bills(conn):
         print("--Bill--")
         print(f"Name: {name} ")
         print(f"Address: {address}")
-        print(f"Total due: {owed} Which is {owed/23000 * 100:.2f} percent of kneecap surgery!\n")
-
-
+        print(f"Total due: {owed} Which is {owed/46000 * 100:.2f} percent of kneecap surgery!\n")
 
     pass
 
 def insert_product(conn):
     # Oppg 3
+    cur = conn.cursor()
+    get_cat = """SELECT * FROM ws.categories WHERE name = 'games';"""
+    cur.execute(get_cat)
+    our_categories = cur.fetchall()
+    name_to_cid = {}
+    for cid, name in get_cat:
+        name_to_cid[lower(name)] = cid
+
+    prod_name = input("Product name: ")
+    price = input("Price: ")
+    category = lower(input("Category: "))
+    description = input("Description: ")
+
+    if category not in name_to_cid.values():
+        print("This category does not exist")
+    else:
+        q = """INSERT INTO ws.products(name, price, cid, description) 
+        VALUES ('%s, %s, %s, %s);"""
+        cur.execute(q, (prod_name, price, name_to_cid[category], description))
+        print(f"New product {prod_name} has been inserted!")
+
+
+
     pass
 
 def get_int_from_user(msg, needed):
